@@ -5,7 +5,7 @@ Created - July 2020
 
 Uniwersalna siec, ktora w zamysle bedzie pasowac do wielu danych, ktore uprzednio nalezy
 potraktowac skryptem, aby dane mialy odpowiednia forme: [..,..,..][0,1].
-Jest to polaczenie sieci Michala, sieci z Kaggle oraz mojej inwencji tworczej.
+Jest to polaczenie sieci z Kaggle oraz mojej inwencji tworczej.
 """
 # importing libraries
 import numpy as np
