@@ -127,7 +127,7 @@ if __name__ == "__main__":
     
     #Zmienne początkowe
     SEED = 4
-    CPU = False #bylo True
+    CPU = False 
     LEARNING_RATE = 0.00025
     BATCH_SIZE = 2000
     Iterations = 5000
@@ -140,7 +140,7 @@ if __name__ == "__main__":
     #setting SEED
     set_seed(SEED)
 
-    #ustawianie urządzenia - POCZYTAJ ENDŻEL!
+  
     if (CPU):
         tf.config.set_visible_devices([], 'GPU')
         tf.config.threading.set_intra_op_parallelism_threads(16)
@@ -150,30 +150,14 @@ if __name__ == "__main__":
     
     #wczytywanie danych
     input_data, output_data = load(FILE_NAME)
-      
-    # df = pd.read_csv(FILE_NAME)
-    #nie jestem pewna, czy powyzszy sposob się sprawdzi, gdyz i tak tworzy sie
-    #DataFrame i trzeba kombinować nad liczbą wierszy i kolumn, także to chyba 
-    #nie jest uniwersalny sposob.
-    #Z innej strony można by pomyslec na temat ujemnych indeksów, bo na koncu 
-    #zawsze bedzie [0,1], czyli 2 liczby, to dane to indeksy [0:-3]
-
+    
     #normalizacja danych (treningowych (?))
     input_data, maks = normalize_data(input_data)
     #input_data bedzie się zawieralo w wąskim przedziale, aby ułatwić naukę sieci
-    
-    #encoding categorical data
-    #output_data must be reshape
-    #tablica output_data musi byc 1D, czyli jednym z pomysłow jest, zeby
-    #iterowac po tablicy i brac co drugi element (ale wtedy po co [0,1] - musialby byc inny sposob ;))
-    #EDIT - patrzac na sieć Michala, można to ominąć (Czy aby na pewno?)
-    # print("output_data",output_data)
 
     output_data2 = []  # tu beda pojedyncze wartosci, tym sposobem dokładnosc wynosi 50% czyli sie nie uczy
     for i in output_data: 
-        output_data2.append(int(i[0])) 
-    # print("output_data2",output_data2)
-    # output_data = np.reshape(output_data, ((len(output_data))*2, 1)) #NIENIENIE
+        output_data2.append(int(i[0]))
     labelencoder_X_1 = LabelEncoder() #'e)'
     output_data = labelencoder_X_1.fit_transform(output_data2) #'e)'
     
@@ -221,11 +205,10 @@ if __name__ == "__main__":
     
     
     # compiling the ANN
-    # model.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
     model.compile(Adam(lr=LEARNING_RATE), loss = 'mean_squared_error', metrics=['accuracy'])
     
 # =============================================================================
-# Fitting the ANN to the Training set !!TU JEST ERROR!!
+# Fitting the ANN to the Training set 
 # =============================================================================
     # y_train powinno byc 1D
     y_train2 = []
