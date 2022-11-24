@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Created - July 2020
 @author: Angelika
@@ -9,18 +8,14 @@ Jest to polaczenie sieci z Kaggle oraz mojej inwencji tworczej.
 """
 # importing libraries
 import numpy as np
-# import pandas as pd
-# import keras
 from keras.models import Sequential
 from keras.layers.core import Dense, Dropout
 from keras.optimizers import Adam
 from keras.utils import to_categorical
 import tensorflow as tf
-# import matplotlib.pyplot as plt
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split #do podzialu na train i test
 from sklearn.preprocessing import StandardScaler #standaryzowanie danych - feature scaling
-# from sklearn.metrics import confusion_matrix # - do tworzenia confusion matrix
 from copy import copy
 
 
